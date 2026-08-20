@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Kismis Didi ✨🌙❤️</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --pink-glow: #ffb6c1;
+      --pink-soft: #ffc0cb;
+      --pink-accent: #ff8da1;
+      --gold-glow: #ffd700;
+      --white-pure: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #1a0810 0%, #000000 100%);
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: relative;
+      perspective: 1200px;
+      transition: background 1s ease-in-out;
+    }
+
+    /* Ambient 3D Glowing Spheres - Black & Light Pink Theme */
+    .glow-sphere {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.35;
+      pointer-events: none;
+      animation: floatSpheres 10s infinite alternate ease-in-out;
+    }
+    .glow-1 { width: 380px; height: 380px; background: var(--pink-glow); top: -5%; left: -5%; }
+    .glow-2 { width: 420px; height: 420px; background: #ff80a0; bottom: -10%; right: -5%; }
+    .glow-3 { width: 300px; height: 300px; background: #ffe4e1; top: 40%; left: 40%; transform: translate(-50%, -50%); }
+
+    @keyframes floatSpheres {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.25; }
+      100% { transform: translate(40px, -30px) scale(1.2); opacity: 0.45; }
+    }
+
+    #fxCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 490px;
+      z-index: 10;
+      position: relative;
+      margin: auto;
+    }
+
+    .glass-card {
+      background: rgba(20, 10, 15, 0.75);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border-radius: 36px;
+      padding: 40px 28px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 
+                  0 0 30px rgba(255, 182, 193, 0.25),
+                  inset 0 0 15px rgba(255, 192, 203, 0.15);
+      text-align: center;
+      border: 1.5px solid rgba(255, 192, 203, 0.2);
+      color: var(--white-pure);
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease;
+      position: relative;
+      max-height: 85vh;
+      overflow-y: auto;
+      transform-style: preserve-3d;
+      transform: rotateX(4deg) rotateY(-2deg) translateZ(10px);
+    }
+
+    .glass-card::-webkit-scrollbar { width: 6px; }
+    .glass-card::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.5); border-radius: 10px; }
+    .glass-card::-webkit-scrollbar-thumb { background: var(--pink-glow); border-radius: 10px; }
+
+    /* Black & Light Pink Background Themes */
+    .bg-interface-1 {
+      background: radial-gradient(circle at 30% 30%, #250b16 0%, #0d0207 50%, #000000 100%);
+    }
+
+    .bg-interface-2 {
+      background: radial-gradient(circle at 70% 30%, #2d0d1b 0%, #11030a 50%, #000000 100%);
+    }
+
+    .bg-interface-3 {
+      background: radial-gradient(circle at 50% 50%, #330f1e 0%, #14040c 50%, #000000 100%);
+    }
+
+    .bg-reaction {
+      background: radial-gradient(circle at 50% 70%, #280a18 0%, #0f0209 50%, #000000 100%);
+    }
+
+    .bg-final {
+      background: radial-gradient(circle at 50% 20%, #381223 0%, #17050e 50%, #000000 100%);
+    }
+
+    .royal-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 0%, #ffb6c1 50%, #ff8da1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-shadow: 0 0 25px rgba(255, 182, 193, 0.4);
+      transform: translateZ(20px);
+    }
+
+    .script-subtitle {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.9rem;
+      color: var(--pink-glow);
+      margin-bottom: 22px;
+      text-shadow: 0 0 12px rgba(255, 182, 193, 0.5);
+      transform: translateZ(15px);
+    }
+
+    .message-box {
+      background: rgba(10, 2, 6, 0.85);
+      border-radius: 22px;
+      padding: 22px;
+      text-align: left;
+      font-size: 0.98rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--pink-glow);
+      border-right: 1px solid rgba(255, 192, 203, 0.15);
+      color: #fff0f3;
+      box-shadow: inset 0 3px 12px rgba(0,0,0,0.8), 0 10px 20px rgba(0,0,0,0.5);
+      white-space: pre-line;
+      transform: translateZ(10px);
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #ffb6c1 0%, #ff6b8b 100%);
+      border: none;
+      color: #1a000a;
+      padding: 16px 22px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
+      transition: all 0.3s ease;
+      width: 100%;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transform: translateZ(15px);
+    }
+
+    .btn:hover {
+      transform: translateZ(25px) translateY(-3px);
+      box-shadow: 0 15px 35px rgba(255, 182, 193, 0.5);
+    }
+
+    .btn:active {
+      transform: translateZ(10px) translateY(1px) scale(0.98);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 192, 203, 0.25);
+      box-shadow: none;
+      color: #ffe6ea;
+    }
+
+    .btn-runaway {
+      z-index: 9999 !important;
+      transition: all 0.15s ease-out;
+    }
+
+    .hidden {
+      display: none !important;
+      opacity: 0;
+    }
+
+    .sad-box {
+      font-size: 4.2rem;
+      margin: 10px 0;
+      animation: pop3D 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.4));
+    }
+
+    @keyframes pop3D {
+      0% { transform: scale(0) rotate(-15deg) translateZ(-50px); opacity: 0; }
+      70% { transform: scale(1.15) rotate(5deg) translateZ(30px); }
+      100% { transform: scale(1) rotate(0deg) translateZ(10px); opacity: 1; }
+    }
+
+    .quote-card {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.85rem;
+      line-height: 1.6;
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.15), rgba(255, 107, 139, 0.15));
+      padding: 26px 22px;
+      border-radius: 26px;
+      border: 1px dashed rgba(255, 192, 203, 0.3);
+      margin: 20px 0;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 0 20px rgba(255, 182, 193, 0.15);
+      transform: translateZ(15px);
+    }
+
+    .arrow-box {
+      font-size: 2.4rem;
+      margin: 15px 0 5px;
+      animation: pointUp3D 1s infinite alternate ease-in-out;
+    }
+
+    @keyframes pointUp3D {
+      0% { transform: translateY(0) translateZ(10px); }
+      100% { transform: translateY(-12px) translateZ(25px); }
+    }
+  </style>
+</head>
+<body class="bg-interface-1">
+
+  <div class="glow-sphere glow-1"></div>
+  <div class="glow-sphere glow-2"></div>
+  <div class="glow-sphere glow-3"></div>
+
+  <canvas id="fxCanvas"></canvas>
+
+  <div class="container">
+
+    <!-- INTERFACE 1 -->
+    <div class="glass-card" id="interface1">
+      <div style="font-size: 4.2rem; margin-bottom: 10px; filter: drop-shadow(0 0 15px #ffb6c1);">💌✨</div>
+      <div class="royal-title">A Special Note</div>
+      <div class="script-subtitle">For Diidii</div>
+      <div class="btn-group">
+        <button class="btn" onclick="goToInterface2()">To Kismis didi ✨️🌙❤️</button>
+      </div>
+    </div>
+
+    <!-- INTERFACE 2 -->
+    <div class="glass-card hidden" id="interface2">
+      <div class="royal-title">Kismis Didi</div>
+      <div class="script-subtitle">Ek baat suniye na... 🌸</div>
+
+      <div class="btn-group" id="interface2Btns">
+        <button class="btn" onclick="goToInterface3()">1. Sunn lete h ✨</button>
+        <button class="btn btn-secondary" id="nhiSunnaBtn" onclick="handleNhiSunna()">2. Nhi sunna 🌸</button>
+      </div>
+
+      <div class="hidden" id="sunnaPadegaBox">
+        <div class="arrow-box">⬆️</div>
+        <div style="font-size: 1.3rem; font-weight: 600; color: #ffb6c1; margin-top: 10px; text-shadow: 0 0 10px rgba(255,182,193,0.5);">
+          Sunna to padega 😂🤣
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERFACE 3 -->
+    <div class="glass-card hidden" id="interface3">
+      <div class="royal-title">Dearest Didi ❤️</div>
+
+      <div class="message-box">
+Sorry didi...
+Aisa bilkul bhi nhi h jaisa aap soch rhe h...uss din bol diye the n wo ...ha maante h nhi bolna chahiye tha..sirf aap bheje the to aap hi deserve krti h .Par abhi tk gussa kyuu.. ek hi baat le k kyu baithe rehte h...chota bhai ko maaf kr dijiye n pilizzz🥺
+      </div>
+
+      <button class="btn btn-secondary" id="readMoreBtn" onclick="showReadMore()" style="margin-bottom: 20px;">Read More 📜</button>
+
+      <div class="message-box hidden" id="readMoreContent">
+Aap aise kyu bolte h ki tumhaari pyaari behen sb h wo log ...aap nhi h ky ?
+Infact aap to unn sab me se one of the bessttt h ✨️✨️ aapko lagega jhuth bol rhe h par sachhii me.
+Aise gussa thodi n hote h ...ab se aisa nhi hoga pakkka 🤞
+
+Apna dhyan rakhiye aur time pe khana aur kha liya kariye, aur reels dekhna bhi km kr dijiye.
+ 
+(Aur taunt na mara kariye ..🙂 plsss)
+
+Thank youuuù
+Byeeeeeee
+Good night✨️✨️
+      </div>
+
+      <div class="btn-group">
+        <button class="btn" onclick="openFinalScreen()">Maan gye ✨</button>
+        <button class="btn" onclick="openFinalScreen()">Ha pakka maan gye 🥰</button>
+        <button class="btn btn-secondary" onclick="openSadScreen()">Abhi bhi gussa hu 🌸</button>
+      </div>
+    </div>
+
+    <!-- REACTION SCREEN -->
+    <div class="glass-card hidden" id="sadScreen">
+      <div class="sad-box">🥺😭</div>
+      <div class="royal-title" style="font-size: 1.8rem;">Aise mat kariye Didi...</div>
+      <p style="color: #ffe6ea; font-size: 0.98rem; margin-bottom: 22px;">
+        Chota bhai ko maaf kr dijiye n pilizzz!
+      </p>
+
+      <div class="btn-group" style="min-height: 140px;">
+        <button class="btn" onclick="openFinalScreen()">Theek h maan jaate h 🥰</button>
+        <button class="btn btn-secondary btn-runaway" id="runAwayBtn" onclick="moveDodgingButton()" onmouseover="moveDodgingButton()">Sach me nhi maanenge ✨</button>
+      </div>
+    </div>
+
+    <!-- GRAND FINAL SCREEN -->
+    <div class="glass-card hidden" id="finalScreen">
+      <div style="font-size: 3.5rem; margin-bottom: 5px; filter: drop-shadow(0 0 15px #ffb6c1);">👑✨</div>
+      <div class="royal-title">Kismis Didi ❤️</div>
+
+      <div class="quote-card">
+        "you re the best one"
+      </div>
+
+      <p style="font-size: 1.2rem; color: #fff0f3; font-weight: 500; text-shadow: 0 0 10px rgba(255,255,255,0.5);">
+        meri best di! 💖
+      </p>
+
+      <div style="font-size: 3rem; margin-top: 15px; margin-bottom: 25px; filter: drop-shadow(0 0 15px #ff8da1);">😇✨✨❤️🍫</div>
+
+      <div class="btn-group">
+        <button class="btn" onclick="closeBrowserTab()">Good Night 🌙✨</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function goToInterface2() {
+      document.body.className = "bg-interface-2";
+      document.getElementById('interface1').classList.add('hidden');
+      document.getElementById('interface2').classList.remove('hidden');
+    }
+
+    function handleNhiSunna() {
+      document.getElementById('nhiSunnaBtn').classList.add('hidden');
+      document.getElementById('sunnaPadegaBox').classList.remove('hidden');
+    }
+
+    function goToInterface3() {
+      document.body.className = "bg-interface-3";
+      document.getElementById('interface2').classList.add('hidden');
+      document.getElementById('interface3').classList.remove('hidden');
+    }
+
+    function showReadMore() {
+      document.getElementById('readMoreContent').classList.remove('hidden');
+      document.getElementById('readMoreBtn').classList.add('hidden');
+    }
+
+    function openSadScreen() {
+      document.body.className = "bg-reaction";
+      document.getElementById('interface3').classList.add('hidden');
+      document.getElementById('sadScreen').classList.remove('hidden');
+    }
+
+    function openFinalScreen() {
+      document.body.className = "bg-final";
+      document.getElementById('interface3').classList.add('hidden');
+      document.getElementById('sadScreen').classList.add('hidden');
+      document.getElementById('finalScreen').classList.remove('hidden');
+    }
+
+    function moveDodgingButton() {
+      const btn = document.getElementById('runAwayBtn');
+      const btnWidth = btn.offsetWidth || 180;
+      const btnHeight = btn.offsetHeight || 50;
+
+      const maxX = window.innerWidth - btnWidth - 30;
+      const maxY = window.innerHeight - btnHeight - 30;
+
+      const randomX = Math.max(20, Math.floor(Math.random() * maxX));
+      const randomY = Math.max(20, Math.floor(Math.random() * maxY));
+
+      btn.style.position = 'fixed';
+      btn.style.left = `${randomX}px`;
+      btn.style.top = `${randomY}px`;
+      btn.style.width = `${btnWidth}px`;
+    }
+
+    function closeBrowserTab() {
+      window.close();
+      // Fallback for browsers that block window.close() unless opened via script:
+      setTimeout(function() {
+        document.body.innerHTML = "<div style='color:#ffb6c1; font-size:2rem; text-align:center; padding-top:40vh; font-family:Poppins, sans-serif;'>Good Night Didi! ✨🌙<br><span style='font-size:1rem; color:#fff;'>You can close this tab now.</span></div>";
+      }, 300);
+    }
+
+    const canvas = document.getElementById('fxCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const particles = [];
+    const butterflies = [];
+    const colors = ['#ffb6c1', '#ff8da1', '#ffe4e1', '#ffffff', '#ff6b8b'];
+
+    class Butterfly {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height + 60;
+        this.speedY = 1.5 + Math.random() * 2.2;
+        this.speedX = (Math.random() - 0.5) * 1.8;
+        this.size = 15 + Math.random() * 12;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.wingAngle = 0;
+        this.wingSpeed = 0.16 + Math.random() * 0.12;
+      }
+      update() {
+        this.y -= this.speedY;
+        this.x += Math.sin(this.y * 0.02) * 1.4 + this.speedX;
+        this.wingAngle += this.wingSpeed;
+        if (Math.random() < 0.65) {
+          particles.push(new Particle(this.x, this.y, this.color));
+        }
+        if (this.y < -60) { this.reset(); }
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 12;
+        const wingScale = Math.abs(Math.sin(this.wingAngle));
+        ctx.beginPath();
+        ctx.ellipse(-this.size * 0.45 * wingScale, 0, this.size * wingScale, this.size * 0.65, Math.PI / 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(this.size * 0.45 * wingScale, 0, this.size * wingScale, this.size * 0.65, -Math.PI / 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.size = Math.random() * 3.2 + 1;
+        this.alpha = 1;
+        this.decay = 0.009 + Math.random() * 0.01;
+        this.vx = (Math.random() - 0.5) * 0.9;
+        this.vy = (Math.random() - 0.5) * 0.9 + 0.5;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.alpha -= this.decay;
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < 20; i++) butterflies.push(new Butterfly());
+
+    function createDidiSparkles() {
+      const centerX = canvas.width / 2;
+      const startY = 80;
+      const didiDots = [
+        [-90, 0], [-90, 15], [-90, 30], [-90, 45], [-90, 60],
+        [-75, 0], [-60, 10], [-55, 30], [-60, 50], [-75, 60],
+        [-30, 0], [-30, 15], [-30, 30], [-30, 45], [-30, 60],
+        [0, 0], [0, 15], [0, 30], [0, 45], [0, 60],
+        [15, 0], [30, 10], [35, 30], [30, 50], [15, 60],
+        [60, 0], [60, 15], [60, 30], [60, 45], [60, 60]
+      ];
+
+      didiDots.forEach(([dx, dy]) => {
+        for (let k = 0; k < 2; k++) {
+          const p = new Particle(
+            centerX + dx + (Math.random() - 0.5) * 6,
+            startY + dy + (Math.random() - 0.5) * 6,
+            '#ffb6c1'
+          );
+          p.decay = 0.003;
+          p.size = 3.0;
+          particles.push(p);
+        }
+      });
+    }
+
+    setInterval(createDidiSparkles, 5000);
+    createDidiSparkles();
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = particles.length - 1; i >= 0; i--) {
+        particles[i].update();
+        particles[i].draw();
+        if (particles[i].alpha <= 0) particles.splice(i, 1);
+      }
+      butterflies.forEach(b => { b.update(); b.draw(); });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+
+</body>
+</html>
