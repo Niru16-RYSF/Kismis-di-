@@ -390,14 +390,14 @@ Good night✨️✨️
     const music1 = document.getElementById('bgMusic1');
     const music2 = document.getElementById('bgMusic2');
 
-    function goToInterface2() {
-      music1.currentTime = song1Start;
-      music1.play().catch(e => console.log('Playback notice:', e));
+            function goToInterface2() {
+      music1.play().then(() => {
+        music1.currentTime = song1Start;
+      }).catch(e => console.log('Playback error:', e));
 
       music1.ontimeupdate = function() {
         if (music1.currentTime >= song1End) {
           music1.currentTime = song1Start;
-          music1.play();
         }
       };
 
@@ -406,6 +406,9 @@ Good night✨️✨️
       document.getElementById('interface2').classList.remove('hidden');
       burstSparkles(window.innerWidth / 2, window.innerHeight / 2, 40);
     }
+
+
+
 
     function handleNhiSunna() {
       document.getElementById('nhiSunnaBtn').classList.add('hidden');
@@ -432,10 +435,11 @@ Good night✨️✨️
       document.getElementById('sadScreen').classList.remove('hidden');
     }
 
-    function openFinalScreen() {
+        function openFinalScreen() {
       music1.pause();
-      music2.currentTime = song2Start;
-      music2.play().catch(e => console.log('Playback notice:', e));
+      music2.play().then(() => {
+        music2.currentTime = song2Start;
+      }).catch(e => console.log('Playback error:', e));
 
       document.body.className = "bg-final";
       document.getElementById('interface3').classList.add('hidden');
@@ -443,6 +447,7 @@ Good night✨️✨️
       document.getElementById('finalScreen').classList.remove('hidden');
       burstSparkles(window.innerWidth / 2, window.innerHeight / 2, 60);
     }
+
 
     function moveDodgingButton() {
       const btn = document.getElementById('runAwayBtn');
