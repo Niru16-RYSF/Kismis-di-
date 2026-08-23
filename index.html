@@ -78,22 +78,16 @@
 
     /* Ultra-Realistic 3D Pink Glassmorphism Card with Shimmer */
     .glass-card {
-      background: linear-gradient(135deg, rgba(255, 133, 192, 0.16) 0%, rgba(20, 3, 15, 0.82) 60%, rgba(255, 45, 135, 0.12) 100%);
-      backdrop-filter: blur(35px);
-      -webkit-backdrop-filter: blur(35px);
-      border-radius: 38px;
-      padding: 42px 30px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 
-                  0 0 45px rgba(255, 45, 135, 0.35),
-                  0 0 90px rgba(255, 133, 192, 0.15),
-                  inset 0 0 25px rgba(255, 209, 220, 0.25);
-      text-align: center;
-      border: 1.5px solid rgba(255, 209, 220, 0.4);
-      color: var(--white-pure);
-      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease;
-      position: relative;
-      max-height: 85vh;
-      overflow-y: auto;
+  background: rgba(26, 3, 20, 0.92);
+  border-radius: 28px;
+  padding: 36px 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 45, 135, 0.25);
+  text-align: center;
+  border: 1.5px solid rgba(255, 209, 220, 0.3);
+  color: var(--white-pure);
+  position: relative;
+  max-height: 85vh;
+  overflow-y: auto;
       transform-style: preserve-3d;
       transform: rotateX(3deg) rotateY(-2deg) translateZ(15px);
     }
@@ -363,7 +357,7 @@ Good night✨️✨️
       <div class="royal-title">Kismis Didi ❤️</div>
 
       <div class="quote-card">
-        "you re the best one"
+    
       </div>
 
       <p style="font-size: 1.3rem; color: #fff2f6; font-weight: 600; text-shadow: 0 0 15px rgba(255,133,192,0.8);">
@@ -579,7 +573,7 @@ Good night✨️✨️
       }
     }
 
-    for (let i = 0; i < 22; i++) butterflies.push(new Butterfly());
+    for (let i = 0; i < 4; i++) butterflies.push(new Butterfly());
 
     function createDidiSparkles() {
       const centerX = canvas.width / 2;
@@ -594,7 +588,7 @@ Good night✨️✨️
       ];
 
       didiDots.forEach(([dx, dy]) => {
-        for (let k = 0; k < 2; k++) {
+        for (let k = 0; k < 1; k++) {
           const p = new Sparkle(
             centerX + dx + (Math.random() - 0.5) * 8,
             startY + dy + (Math.random() - 0.5) * 8,
@@ -609,19 +603,28 @@ Good night✨️✨️
 
     setInterval(createDidiSparkles, 4500);
     createDidiSparkles();
+    const targetInterval = 1000 / 45;
+    let lastFrameTime = 0;
 
-    function animate() {
+    function animate(currentTime) {
+      requestAnimationFrame(animate);
+
+      const delta = currentTime - lastFrameTime;
+      if (delta < targetInterval) return;
+      lastFrameTime = currentTime - (delta % targetInterval);
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
       for (let i = particles.length - 1; i >= 0; i--) {
         particles[i].update();
         particles[i].draw();
         if (particles[i].alpha <= 0) particles.splice(i, 1);
       }
-      butterflies.forEach(b => { b.update(); b.draw(); });
-      requestAnimationFrame(animate);
-    }
-    animate();
-  </script>
 
-</body>
-</html>
+      butterflies.forEach(b => {
+        b.update();
+        b.draw();
+      });
+    }
+
+    requestAnimationFrame(animate);
