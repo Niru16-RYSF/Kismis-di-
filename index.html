@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Kismis Didi ✨🌙❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark-1: #0a0109;
+      --bg-dark-2: #21031c;
+      --pink-glow: #ff2d87;
+      --white-pure: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: radial-gradient(circle at center, var(--bg-dark-2) 0%, var(--bg-dark-1) 100%);
+      min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+    }
+
+    #sparkleCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      pointer-events: auto;
+      width: 90%;
+      max-width: 480px;
+      margin: 20px auto;
+    }
+
+    .glass-card {
+      background: rgba(26, 3, 20, 0.92);
+      border-radius: 28px;
+      padding: 36px 24px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 45, 135, 0.25);
+      text-align: center;
+      border: 1.5px solid rgba(255, 209, 220, 0.3);
+      color: var(--white-pure);
+      position: relative;
+      max-height: 85vh;
+      overflow-y: auto;
+      transform-style: preserve-3d;
+      animation: floatCard 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatCard {
+      0% { transform: translateY(0px) rotateX(1deg); }
+      100% { transform: translateY(-8px) rotateX(-1deg); }
+    }
+
+    .title-main {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 1.8rem;
+      background: linear-gradient(45deg, #ffd1dc, #ff69b4, #00d2ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .cursive-text {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      color: #ffd1dc;
+      margin: 15px 0;
+      text-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
+    }
+
+    .message-body {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 18px 0;
+      font-weight: 300;
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, #ff2d87, #9b51e0, #00d2ff);
+      color: #ffffff;
+      border: none;
+      outline: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 45, 135, 0.4);
+      margin-top: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+
+    .btn-main:active {
+      transform: scale(0.96);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffd1dc;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 8px 5px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="sparkleCanvas"></canvas>
+
+  <audio id="bgMusic1" preload="auto">
+    <source src="song1.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="bgMusic2" preload="auto">
+    <source src="song2.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <!-- Screen 1 -->
+    <div id="interface1" class="glass-card">
+      <h1 class="title-main">A Special Gift ✨</h1>
+      <div class="cursive-text">For Kismis Didi 🌙</div>
+      <p class="message-body">
+        Something warm, glowing, and crafted with love just for you. Tap below to start!
+      </p>
+      <button class="btn-main" onclick="startJourney()">To Kismis didi ✨️🌙❤️</button>
+    </div>
+
+    <!-- Screen 2 -->
+    <div id="interface2" class="glass-card hidden">
+      <div class="cursive-text">Dearest Didi ❤️</div>
+      <p class="message-body">
+        May your journey ahead be filled with glowing moments, boundless smiles, and endless joy. You are deeply cherished and truly one of a kind.
+      </p>
+      <button class="btn-main" onclick="openFinalScreen()">Open Final Message ✨</button>
+    </div>
+
+    <!-- Screen 3 (Final) -->
+    <div id="finalScreen" class="glass-card hidden">
+      <h1 class="title-main">Always Shining ✨🌙</h1>
+      <div class="cursive-text">Happy Moments Always!</div>
+      <p class="message-body">
+        Thank you for being the sweetest, most wonderful person. Keep shining bright like the stars above!
+      </p>
+      <button class="btn-secondary" onclick="restartJourney()">Replay ↺</button>
+    </div>
+  </div>
+
+  <script>
+    const music1 = document.getElementById('bgMusic1');
+    const music2 = document.getElementById('bgMusic2');
+
+    // Timestamps in seconds
+    const song1Start = 163; // 2:43
+    const song1End = 183;   // 3:03
+    const song2Start = 96;   // 1:36
+
+    function startJourney() {
+      if (music1) {
+        music1.currentTime = song1Start;
+        music1.play().catch(e => console.log('Song 1 error:', e));
+
+        music1.ontimeupdate = () => {
+          if (music1.currentTime >= song1End) {
+            music1.currentTime = song1Start;
+          }
+        };
+      }
+      document.getElementById('interface1').classList.add('hidden');
+      document.getElementById('interface2').classList.remove('hidden');
+    }
+
+    function openFinalScreen() {
+      if (music1) {
+        music1.pause();
+        music1.ontimeupdate = null;
+      }
+      if (music2) {
+        music2.currentTime = song2Start;
+        music2.play().catch(e => console.log('Song 2 error:', e));
+      }
+      document.getElementById('interface2').classList.add('hidden');
+      document.getElementById('finalScreen').classList.remove('hidden');
+    }
+
+    function restartJourney() {
+      if (music2) music2.pause();
+      if (music1) {
+        music1.currentTime = song1Start;
+        music1.play().catch(e => console.log('Replay error:', e));
+      }
+      document.getElementById('finalScreen').classList.add('hidden');
+      document.getElementById('interface1').classList.remove('hidden');
+    }
+
+    // Canvas Setup
+    const canvas = document.getElementById('sparkleCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // 3D Sparkling Butterfly (Pink, Blue, Purple)
+    const butterflyHues = [330, 200, 275]; // Pink, Blue, Purple
+
+    class Butterfly {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height + 20 + Math.random() * 80;
+        this.size = 10 + Math.random() * 8;
+        this.vx = (Math.random() - 0.5) * 1.6;
+        this.vy = -(1.2 + Math.random() * 1.4);
+        this.wingAngle = Math.random() * Math.PI * 2;
+        this.wingSpeed = 0.18 + Math.random() * 0.12;
+        this.hue = butterflyHues[Math.floor(Math.random() * butterflyHues.length)];
+        this.sparkleTimer = 0;
+      }
+
+      update() {
+        this.x += this.vx + Math.sin(this.y * 0.02) * 0.9;
+        this.y += this.vy;
+        this.wingAngle += this.wingSpeed;
+
+        // Emit small trail sparkles
+        this.sparkleTimer++;
+        if (this.sparkleTimer % 8 === 0 && particles.length < 50) {
+          particles.push(new Sparkle(this.x, this.y, `hsl(${this.hue}, 100%, 75%)`));
+        }
+
+        if (this.y < -50 || this.x < -50 || this.x > canvas.width + 50) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        const wingScale = Math.abs(Math.sin(this.wingAngle));
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.fillStyle = `hsl(${this.hue}, 95%, 72%)`;
+        ctx.shadowColor = `hsl(${this.hue}, 100%, 70%)`;
+        ctx.shadowBlur = 12;
+
+        // Left Wing
+        ctx.beginPath();
+        ctx.ellipse(-this.size * 0.6 * wingScale, 0, this.size * 0.8 * wingScale, this.size * 0.5, -0.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Right Wing
+        ctx.beginPath();
+        ctx.ellipse(this.size * 0.6 * wingScale, 0, this.size * 0.8 * wingScale, this.size * 0.5, 0.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Body
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.ellipse(0, 0, 1.4, this.size * 0.45, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.restore();
+      }
+    }
+
+    // Sparkle Class
+    class Sparkle {
+      constructor(x, y, color = '#ffd1dc') {
+        this.x = x || Math.random() * canvas.width;
+        this.y = y || Math.random() * canvas.height;
+        this.size = Math.random() * 2.2 + 0.8;
+        this.alpha = 1;
+        this.fade = 0.015 + Math.random() * 0.02;
+        this.color = color;
+      }
+
+      update() {
+        this.alpha -= this.fade;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    const butterflies = Array.from({ length: 16 }, () => new Butterfly());
+    const particles = [];
+
+    // Smooth 45 FPS Animation Loop
+    let lastFrameTime = 0;
+    const targetInterval = 1000 / 45;
+
+    function animate(currentTime) {
+      requestAnimationFrame(animate);
+
+      const delta = currentTime - lastFrameTime;
+      if (delta < targetInterval) return;
+      lastFrameTime = currentTime - (delta % targetInterval);
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        particles[i].update();
+        particles[i].draw();
+        if (particles[i].alpha <= 0) {
+          particles.splice(i, 1);
+        }
+      }
+
+      butterflies.forEach(b => {
+        b.update();
+        b.draw();
+      });
+    }
+
+    requestAnimationFrame(animate);
+  </script>
+</body>
+</html>
